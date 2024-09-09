@@ -16,11 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OnlaynBazar.DataAccess\OnlaynBazar.DataAccess.csproj" />
     <ProjectReference Include="..\OnlaynBazar.Domain\OnlaynBazar.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\Assets\" />
   </ItemGroup>
 
 </Project>
