@@ -2,5 +2,6 @@
 
 public enum PaymentMethod
 {
-
+    CreditCard,
+    CashOnDelivery
 }
