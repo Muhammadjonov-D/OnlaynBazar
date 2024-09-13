@@ -15,4 +15,8 @@
     <ProjectReference Include="..\OnlaynBazar.Domain\OnlaynBazar.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EntityConfigurations\Configuraitons\" />
+  </ItemGroup>
+
 </Project>

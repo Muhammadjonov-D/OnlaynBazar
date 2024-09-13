@@ -1,4 +1,5 @@
 ﻿using OnlaynBazar.Domain.Commons;
+using OnlaynBazar.Domain.Entities.OrderItems;
 using OnlaynBazar.Domain.Entities.Users;
 using OnlaynBazar.Domain.Enums;
 
@@ -16,4 +17,5 @@ public class Order : Auditable
     public string WarehouseAddress { get; set; }
     public long OrderItem {  get; set; }
     public PaymentMethod PaymentMethod { get; set; }
+    public ICollection<OrderItem> OrderItems { get; set; }
 }
