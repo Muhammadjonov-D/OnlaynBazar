@@ -31,6 +31,7 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<OrderItem> OrderItems { get; }
     public IRepository<OrderManagement> OrderManagements { get; }
     public IRepository<Order> Orders { get; }
+    public IRepository<UserRole> UserRoles { get; }
     public IRepository<Payment> Payments { get; }
     public IRepository<Product> Products { get; }
     public IRepository<UserManagement> UserManagements { get; }
@@ -54,15 +55,29 @@ public class UnitOfWork : IUnitOfWork
         GC.SuppressFinalize(this);
     }
 
+
+    public UnitOfWork(AppDbContext context)
+    {
+        this.context = context;
+        Users = new Repository<User>(this.context);
+        Assets = new Repository<Asset>(this.context);
+    }
+        public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+    }
+
     public async ValueTask<bool> SaveAsync()
     {
         return await context.SaveChangesAsync() > 0;
     }
 
+
     public async ValueTask BeginTransactionAsync()
     {
         transaction = await this.context.Database.BeginTransactionAsync();
     }
+
 
     public async ValueTask CommitTransactionAsync()
     {
