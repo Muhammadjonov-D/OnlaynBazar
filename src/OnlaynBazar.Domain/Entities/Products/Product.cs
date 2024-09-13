@@ -1,6 +1,7 @@
 ﻿using OnlaynBazar.Domain.Commons;
 using OnlaynBazar.Domain.Entities.Categories;
 using OnlaynBazar.Domain.Entities.Commons;
+using OnlaynBazar.Domain.Entities.DisCountCodes;
 
 namespace OnlaynBazar.Domain.Entities.Products;
 
@@ -15,4 +16,5 @@ public class Product : Auditable
     public Asset File { get; set; }
     public bool IsActivestatus { get; set; }
     public long DiscountId { get; set; }
+    public DisCountCode DiscountCode { get; set; }
 }

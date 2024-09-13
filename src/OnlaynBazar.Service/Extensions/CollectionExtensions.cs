@@ -4,7 +4,7 @@ using OnlaynBazar.Service.Exceptions;
 using OnlaynBazar.Service.Helpers;
 using System.Linq.Expressions;
 
-namespace Arcana.Service.Extensions;
+namespace OnlaynBazar.Service.Extensions;
 
 public static class CollectionExtensions
 {

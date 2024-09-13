@@ -18,6 +18,9 @@ namespace OnlaynBazar.DataAccess.UnitOfWorks;
 public interface IUnitOfWork : IDisposable
 {
     IRepository<User> Users { get; }
+    IRepository<UserRole> UserRoles { get; }
+    IRepository<Permission> Permissions { get; }
+    IRepository<RolePermission> RolePermissions { get; }
     IRepository<Asset> Assets { get; }
     IRepository<CardItem> CardItems { get; }
     IRepository<Category> Categories { get; }
@@ -30,4 +33,7 @@ public interface IUnitOfWork : IDisposable
     IRepository<UserManagement> UserManagements { get; }
     IRepository<WareHouse> WareHouses { get; }
     IRepository<Wishlist> Wishlists { get; }
+    ValueTask<bool> SaveAsync();
+    ValueTask BeginTransactionAsync();
+    ValueTask CommitTransactionAsync();
 }

@@ -1,12 +1,13 @@
-﻿using OnlaynBazar.Domain.Commons;
+﻿using OnlaynBazar.Domain.Entities.Users;
 using OnlaynBazar.Domain.Entities.Wishlists;
 
-namespace OnlaynBazar.Domain.Entities.Users;
+namespace OnlaynBazar.WebApi.Models.Users;
 
-public class User : Auditable
+public class UserViewModel
 {
-    public string LastName { get; set; }
+    public long Id { get; set; }
     public string FirstName { get; set; }
+    public string LastName { get; set; }
     public string Email { get; set; }
     public string Password { get; set; }
     public string PhoneNumber { get; set; }
@@ -15,5 +16,5 @@ public class User : Auditable
     public long WishlistId { get; set; }
     public Wishlist Wishlist { get; set; }
     public long RoleId { get; set; }
-    public UserRole Role { get; set; }
+    public UserRole UserRole { get; set; }
 }
