@@ -3,18 +3,23 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using OnlaynBazar.DataAccess.UnitOfWorks;
 using OnlaynBazar.Service.Helpers;
+using OnlaynBazar.Service.Services.Assets;
 using OnlaynBazar.Service.Services.Permissions;
 using OnlaynBazar.Service.Services.RolePermisisons;
+using OnlaynBazar.Service.Services.UserManagements;
 using OnlaynBazar.Service.Services.UserRoles;
 using OnlaynBazar.Service.Services.Users;
 using OnlaynBazar.WebApi.ApiServices.Permissions;
 using OnlaynBazar.WebApi.ApiServices.RolePermissions;
+using OnlaynBazar.WebApi.ApiServices.UserManagements;
 using OnlaynBazar.WebApi.ApiServices.UserRoles;
 using OnlaynBazar.WebApi.ApiServices.Users;
 using OnlaynBazar.WebApi.Helpers;
 using OnlaynBazar.WebApi.Middlewares;
+using OnlaynBazar.WebApi.Validators.Assests;
 using OnlaynBazar.WebApi.Validators.Permissions;
 using OnlaynBazar.WebApi.Validators.RolePermissions;
+using OnlaynBazar.WebApi.Validators.UserManagements;
 using OnlaynBazar.WebApi.Validators.UserRoles;
 using OnlaynBazar.WebApi.Validators.Users;
 using System.Text;
@@ -30,6 +35,8 @@ public static class ServicesCollection
         services.AddScoped<IUserRoleService, UserRoleService>();
         services.AddScoped<IPermissionService, PermissionService>();
         services.AddScoped<IRolePermissionService, RolePermissionService>();
+        services.AddScoped<IUserManagementService, UserManagementService>();
+        services.AddScoped<IAssetService, AssetService>();
     }
     public static void AddApiServices(this IServiceCollection services)
     {
@@ -38,6 +45,8 @@ public static class ServicesCollection
         services.AddScoped<IUserRoleApiService, UserRoleApiService>();
         services.AddScoped<IPermissionApiService, PermissionApiService>();
         services.AddScoped<IRolePermissionApiService, RolePermissionApiService>();
+        services.AddScoped<IUserManagementApiService, UserManagementApiService>();
+        
     }
     public static void AddValidators(this IServiceCollection services)
     {
@@ -54,8 +63,15 @@ public static class ServicesCollection
         services.AddTransient<PermissionCreateModelValidator>();
         services.AddTransient<PermissionUpdateModelValidator>();
 
-        // ROlePErmission
+        // RolePermission
         services.AddTransient<RolePermissionCreateModelValidator>();
+
+        // UserManagement
+        services.AddTransient<UserManagementCreateModelValidator>();
+        services.AddTransient<UserManagemnetUpdateModelValidator>();
+
+        // Asset
+        services.AddTransient<AssetCreateModelValidator>();
     }
     public static void AddExceptionHandlers(this IServiceCollection services)
     {

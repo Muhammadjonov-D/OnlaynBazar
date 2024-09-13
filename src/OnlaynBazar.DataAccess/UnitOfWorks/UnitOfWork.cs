@@ -24,32 +24,19 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<UserRole> UserRoles { get; }
     public IRepository<Permission> Permissions { get; }
     public IRepository<RolePermission> RolePermissions { get; }
-
     public IRepository<Asset> Assets { get; }
-
     public IRepository<CardItem> CardItems { get; }
-
     public IRepository<Category> Categories { get; }
-
     public IRepository<DisCountCode> DisCountCodes { get; }
     public IRepository<OrderItem> OrderItems { get; }
-
     public IRepository<OrderManagement> OrderManagements { get; }
-
     public IRepository<Order> Orders { get; }
-
     public IRepository<Payment> Payments { get; }
-
     public IRepository<Product> Products { get; }
-
     public IRepository<UserManagement> UserManagements { get; }
-
     public IRepository<WareHouse> WareHouses { get; }
-
     public IRepository<Wishlist> Wishlists { get; }
-
     private IDbContextTransaction transaction;
-
     public UnitOfWork(AppDbContext context)
     {
         this.context = context;
@@ -57,6 +44,8 @@ public class UnitOfWork : IUnitOfWork
         UserRoles = new Repository<UserRole>(this.context);
         Permissions = new Repository<Permission>(this.context);
         RolePermissions = new Repository<RolePermission>(this.context);
+        UserManagements = new Repository<UserManagement>(this.context);
+        Assets = new Repository<Asset>(this.context);
     }
     public void Dispose()
     {
