@@ -8,6 +8,10 @@ using OnlaynBazar.WebApi.Models.RolePermissions;
 using OnlaynBazar.WebApi.Models.UserRoles;
 using OnlaynBazar.WebApi.Models.Users;
 using OnlaynBazar.WebApi.Models.Assets;
+using OnlaynBazar.Domain.Entities.DisCountCodes;
+using OnlaynBazar.WebApi.Models.Discounts;
+using OnlaynBazar.Domain.Entities.Orders;
+using OnlaynBazar.WebApi.Models.Orders;
 
 namespace OnlaynBazar.WebApi.Mappers;
 
@@ -41,5 +45,15 @@ public class MappingProfile : Profile
 
         // Asset
         CreateMap<AssetViewModul, Asset>().ReverseMap();
+
+        // Discount
+        CreateMap<DisCountCode,DiscountCreateModel>().ReverseMap();
+        CreateMap<DisCountCode,DiscountUpdateModel>().ReverseMap();
+        CreateMap<DisCountCode,DiscountViewModel>().ReverseMap();
+
+        // Order
+        CreateMap<Order, OrderCreateModel>().ReverseMap();
+        CreateMap<Order,OrderUpdateModel>().ReverseMap();
+        CreateMap<Order,OrderViewModel>().ReverseMap();
     }
 }

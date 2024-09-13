@@ -46,6 +46,8 @@ public class UnitOfWork : IUnitOfWork
         RolePermissions = new Repository<RolePermission>(this.context);
         UserManagements = new Repository<UserManagement>(this.context);
         Assets = new Repository<Asset>(this.context);
+        DisCountCodes = new Repository<DisCountCode>(this.context);
+        Orders = new Repository<Order>(this.context);
     }
     public void Dispose()
     {
