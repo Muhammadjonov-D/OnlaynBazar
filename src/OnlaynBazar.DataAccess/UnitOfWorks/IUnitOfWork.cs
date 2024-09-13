@@ -28,6 +28,7 @@ public interface IUnitOfWork : IDisposable
     IRepository<OrderItem> OrderItems { get; }
     IRepository<OrderManagement> OrderManagements { get; }
     IRepository<Order> Orders { get; }
+    IRepository<UserRole> UserRoles { get; }
     IRepository<Payment> Payments { get; }
     IRepository<Product> Products { get; }
     IRepository<UserManagement> UserManagements { get; }
