@@ -48,6 +48,8 @@ public class UnitOfWork : IUnitOfWork
         Assets = new Repository<Asset>(this.context);
         DisCountCodes = new Repository<DisCountCode>(this.context);
         Orders = new Repository<Order>(this.context);
+        Categories = new Repository<Category>(this.context);
+        Products = new Repository<Product>(this.context);
     }
     public void Dispose()
     {

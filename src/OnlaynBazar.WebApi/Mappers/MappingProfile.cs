@@ -12,6 +12,10 @@ using OnlaynBazar.Domain.Entities.DisCountCodes;
 using OnlaynBazar.WebApi.Models.Discounts;
 using OnlaynBazar.Domain.Entities.Orders;
 using OnlaynBazar.WebApi.Models.Orders;
+using OnlaynBazar.Domain.Entities.Categories;
+using OnlaynBazar.WebApi.Models.Categories;
+using OnlaynBazar.Domain.Entities.Products;
+using OnlaynBazar.WebApi.Models.Products;
 
 namespace OnlaynBazar.WebApi.Mappers;
 
@@ -55,5 +59,15 @@ public class MappingProfile : Profile
         CreateMap<Order, OrderCreateModel>().ReverseMap();
         CreateMap<Order,OrderUpdateModel>().ReverseMap();
         CreateMap<Order,OrderViewModel>().ReverseMap();
+
+        // Category
+        CreateMap<Category,CategoryCreateModel>().ReverseMap();
+        CreateMap<Category,CategoryUpdateModel>().ReverseMap();
+        CreateMap<Category,CategoryViewModel>().ReverseMap();
+
+        // Product
+        CreateMap<Product,ProductCreateModel>().ReverseMap();
+        CreateMap<Product, ProductUpdateModel>().ReverseMap();
+        CreateMap<Product,ProductViewModel>().ReverseMap();
     }
 }
