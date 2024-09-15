@@ -16,6 +16,8 @@ using OnlaynBazar.Domain.Entities.Categories;
 using OnlaynBazar.WebApi.Models.Categories;
 using OnlaynBazar.Domain.Entities.Products;
 using OnlaynBazar.WebApi.Models.Products;
+using OnlaynBazar.Domain.Entities.CardItems;
+using OnlaynBazar.WebApi.Models.CardItems;
 
 namespace OnlaynBazar.WebApi.Mappers;
 
@@ -69,5 +71,10 @@ public class MappingProfile : Profile
         CreateMap<Product,ProductCreateModel>().ReverseMap();
         CreateMap<Product, ProductUpdateModel>().ReverseMap();
         CreateMap<Product,ProductViewModel>().ReverseMap();
+
+        // CardITem
+        CreateMap<CardItem,CardItemCreateModel>().ReverseMap();
+        CreateMap<CardItem, CardItemUpdateModel>().ReverseMap();
+        CreateMap<CardItem,CardItemViewModel>().ReverseMap();
     }
 }

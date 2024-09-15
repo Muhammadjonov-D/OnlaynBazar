@@ -31,7 +31,6 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<OrderItem> OrderItems { get; }
     public IRepository<OrderManagement> OrderManagements { get; }
     public IRepository<Order> Orders { get; }
-    public IRepository<UserRole> UserRoles { get; }
     public IRepository<Payment> Payments { get; }
     public IRepository<Product> Products { get; }
     public IRepository<UserManagement> UserManagements { get; }
@@ -51,20 +50,9 @@ public class UnitOfWork : IUnitOfWork
         Orders = new Repository<Order>(this.context);
         Categories = new Repository<Category>(this.context);
         Products = new Repository<Product>(this.context);
+        CardItems = new Repository<CardItem>(this.context);
     }
     public void Dispose()
-    {
-        GC.SuppressFinalize(this);
-    }
-
-
-    public UnitOfWork(AppDbContext context)
-    {
-        this.context = context;
-        Users = new Repository<User>(this.context);
-        Assets = new Repository<Asset>(this.context);
-    }
-        public void Dispose()
     {
         GC.SuppressFinalize(this);
     }
