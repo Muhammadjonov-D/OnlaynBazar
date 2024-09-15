@@ -46,6 +46,7 @@ public class UnitOfWork : IUnitOfWork
         Assets = new Repository<Asset>(this.context);
         Orders = new Repository<Order>(this.context);
         Products = new Repository<Product>(this.context);
+        Wishlists = new Repository<Wishlist>(this.context);
         UserRoles = new Repository<UserRole>(this.context);
         CardItems = new Repository<CardItem>(this.context);
         Categories = new Repository<Category>(this.context);
