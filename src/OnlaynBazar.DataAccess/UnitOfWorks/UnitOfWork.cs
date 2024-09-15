@@ -21,36 +21,42 @@ public class UnitOfWork : IUnitOfWork
 {
     private readonly AppDbContext context;
     public IRepository<User> Users { get; }
-    public IRepository<UserRole> UserRoles { get; }
-    public IRepository<Permission> Permissions { get; }
-    public IRepository<RolePermission> RolePermissions { get; }
     public IRepository<Asset> Assets { get; }
-    public IRepository<CardItem> CardItems { get; }
-    public IRepository<Category> Categories { get; }
-    public IRepository<DisCountCode> DisCountCodes { get; }
-    public IRepository<OrderItem> OrderItems { get; }
-    public IRepository<OrderManagement> OrderManagements { get; }
     public IRepository<Order> Orders { get; }
-    public IRepository<Payment> Payments { get; }
     public IRepository<Product> Products { get; }
-    public IRepository<UserManagement> UserManagements { get; }
-    public IRepository<WareHouse> WareHouses { get; }
+    public IRepository<Payment> Payments { get; }
+    public IRepository<CardItem> CardItems { get; }
+    public IRepository<UserRole> UserRoles { get; }
     public IRepository<Wishlist> Wishlists { get; }
+    public IRepository<Category> Categories { get; }
+    public IRepository<WareHouse> WareHouses { get; }
+    public IRepository<OrderItem> OrderItems { get; }
+    public IRepository<Permission> Permissions { get; }
+    public IRepository<DisCountCode> DisCountCodes { get; }
+    public IRepository<UserManagement> UserManagements { get; }
+    public IRepository<RolePermission> RolePermissions { get; }
+    public IRepository<OrderManagement> OrderManagements { get; }
+
     private IDbContextTransaction transaction;
+
     public UnitOfWork(AppDbContext context)
     {
         this.context = context;
         Users = new Repository<User>(this.context);
+        Assets = new Repository<Asset>(this.context);
+        Orders = new Repository<Order>(this.context);
+        Payments = new Repository<Payment>(this.context);
+        Products = new Repository<Product>(this.context);
+        Wishlists = new Repository<Wishlist>(this.context);
         UserRoles = new Repository<UserRole>(this.context);
+        CardItems = new Repository<CardItem>(this.context);
+        Categories = new Repository<Category>(this.context);
+        WareHouses = new Repository<WareHouse>(this.context);
+        OrderItems = new Repository<OrderItem>(this.context);
         Permissions = new Repository<Permission>(this.context);
+        DisCountCodes = new Repository<DisCountCode>(this.context);
         RolePermissions = new Repository<RolePermission>(this.context);
         UserManagements = new Repository<UserManagement>(this.context);
-        Assets = new Repository<Asset>(this.context);
-        DisCountCodes = new Repository<DisCountCode>(this.context);
-        Orders = new Repository<Order>(this.context);
-        Categories = new Repository<Category>(this.context);
-        Products = new Repository<Product>(this.context);
-        CardItems = new Repository<CardItem>(this.context);
     }
     public void Dispose()
     {
@@ -62,12 +68,10 @@ public class UnitOfWork : IUnitOfWork
         return await context.SaveChangesAsync() > 0;
     }
 
-
     public async ValueTask BeginTransactionAsync()
     {
         transaction = await this.context.Database.BeginTransactionAsync();
     }
-
 
     public async ValueTask CommitTransactionAsync()
     {

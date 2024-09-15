@@ -6,7 +6,7 @@ namespace OnlaynBazar.Domain.Entities.Payments;
 
 public class Payment : Auditable
 {
-    public long OrderId { get; set; }
+    public long OrderId { get; set; } 
     public Order Order { get; set; }
     public decimal Amount { get; set; }
     public PaymentMethod PaymentMethod { get; set; }
