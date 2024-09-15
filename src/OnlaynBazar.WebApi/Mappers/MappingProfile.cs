@@ -22,6 +22,8 @@ using OnlaynBazar.Domain.Entities.Wishlists;
 using OnlaynBazar.WebApi.Models.Wishlists;
 using OnlaynBazar.Domain.Entities.WareHouses;
 using OnlaynBazar.WebApi.Models.WareHouses;
+using OnlaynBazar.Domain.Entities.Payments;
+using OnlaynBazar.WebApi.Models.Payments;
 
 namespace OnlaynBazar.WebApi.Mappers;
 
@@ -90,5 +92,9 @@ public class MappingProfile : Profile
         CreateMap<WareHouse,WareHouseCreateModel>().ReverseMap();
         CreateMap<WareHouse,WareHouseUpdateModel>().ReverseMap();
         CreateMap<WareHouse,WareHouseViewModel>().ReverseMap();
+
+        // Payment
+        CreateMap<Payment,PaymentCreateModel>().ReverseMap();
+        CreateMap<Payment,PaymentViewModel>().ReverseMap();
     }
 }

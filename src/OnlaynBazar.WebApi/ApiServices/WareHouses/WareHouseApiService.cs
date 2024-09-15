@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using OnlaynBazar.Domain.Entities.WareHouses;
-using OnlaynBazar.Service.Configurations;
-using OnlaynBazar.Service.Services.WereHouses;
 using OnlaynBazar.WebApi.Extensions;
+using OnlaynBazar.Service.Configurations;
 using OnlaynBazar.WebApi.Models.WareHouses;
+using OnlaynBazar.Domain.Entities.WareHouses;
+using OnlaynBazar.Service.Services.WereHouses;
 using OnlaynBazar.WebApi.Validators.WareHouses;
 
 namespace OnlaynBazar.WebApi.ApiServices.WareHouses;
@@ -13,7 +13,6 @@ public class WareHouseApiService(
     IWareHouseService wareHouseService,
     WareHouseCreateModelValidator createModelValidator,
     WareHouseUpdateModelValidator updateModelValidator) : IWareHouseApiService
-
 {
     public async ValueTask<bool> DeleteAsync(long id)
     {

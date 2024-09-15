@@ -8,7 +8,7 @@ public interface IWishlistService
 {
     ValueTask<bool> DeleteAsync(long id);
     ValueTask<Wishlist> GetByIdAsync(long id);
-    ValueTask<Wishlist> CreateAsync(WareHouse wishlist);
-    ValueTask<Wishlist> UpdateAsync(long id, WareHouse wishlist);
+    ValueTask<Wishlist> CreateAsync(Wishlist wishlist);
+    ValueTask<Wishlist> UpdateAsync(long id, Wishlist wishlist);
     ValueTask<IEnumerable<Wishlist>> GetAllAsync(PaginationParams @params, Filter filter, string search = null);
 }
