@@ -20,6 +20,8 @@ using OnlaynBazar.Domain.Entities.CardItems;
 using OnlaynBazar.WebApi.Models.CardItems;
 using OnlaynBazar.Domain.Entities.Wishlists;
 using OnlaynBazar.WebApi.Models.Wishlists;
+using OnlaynBazar.Domain.Entities.WareHouses;
+using OnlaynBazar.WebApi.Models.WareHouses;
 
 namespace OnlaynBazar.WebApi.Mappers;
 
@@ -83,5 +85,10 @@ public class MappingProfile : Profile
         CreateMap<Wishlist,WishlistCreateModel>().ReverseMap();
         CreateMap<Wishlist,WishlistUpdateModel>().ReverseMap();
         CreateMap<Wishlist, WishlistViewModel>().ReverseMap();
+
+        // WareHouse
+        CreateMap<WareHouse,WareHouseCreateModel>().ReverseMap();
+        CreateMap<WareHouse,WareHouseUpdateModel>().ReverseMap();
+        CreateMap<WareHouse,WareHouseViewModel>().ReverseMap();
     }
 }

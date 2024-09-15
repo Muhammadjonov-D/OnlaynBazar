@@ -50,6 +50,7 @@ public class UnitOfWork : IUnitOfWork
         UserRoles = new Repository<UserRole>(this.context);
         CardItems = new Repository<CardItem>(this.context);
         Categories = new Repository<Category>(this.context);
+        WareHouses = new Repository<WareHouse>(this.context);
         OrderItems = new Repository<OrderItem>(this.context);
         Permissions = new Repository<Permission>(this.context);
         DisCountCodes = new Repository<DisCountCode>(this.context);
