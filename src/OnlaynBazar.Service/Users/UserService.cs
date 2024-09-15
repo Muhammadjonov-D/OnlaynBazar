@@ -1,9 +1,10 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
-using Microsoft.VisualBasic;
 using OnlaynBazar.DataAccess.UnitOfWorks;
 using OnlaynBazar.Domain.Entities.Users;
 using OnlaynBazar.Service.Configurations;
 using OnlaynBazar.Service.Exceptions;
+using OnlaynBazar.Service.Extensions;
+using Microsoft.EntityFrameworkCore;
 using OnlaynBazar.Service.Helpers;
 
 namespace OnlaynBazar.Service.Users;
