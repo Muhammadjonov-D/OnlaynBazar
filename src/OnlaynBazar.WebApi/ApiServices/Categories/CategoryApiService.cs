@@ -8,7 +8,7 @@ using OnlaynBazar.WebApi.Validators.Categories;
 
 namespace OnlaynBazar.WebApi.ApiServices.Categories;
 
-public class CourseCategoryApiService(
+public class CategoryApiService(
     IMapper mapper,
     ICategoryService categoryService,
     CategoryCreateModelValidator createModelValidator,

@@ -7,7 +7,6 @@ using OnlaynBazar.WebApi.Models.Permissions;
 using OnlaynBazar.WebApi.Models.RolePermissions;
 using OnlaynBazar.WebApi.Models.UserRoles;
 using OnlaynBazar.WebApi.Models.Users;
-using OnlaynBazar.WebApi.Models.Assets;
 using OnlaynBazar.Domain.Entities.DisCountCodes;
 using OnlaynBazar.WebApi.Models.Discounts;
 using OnlaynBazar.Domain.Entities.Orders;

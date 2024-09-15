@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using OnlaynBazar.DataAccess.EntityConfigurations.Commons;
 using OnlaynBazar.Domain.Entities.CardItems;
 using OnlaynBazar.Domain.Entities.Categories;
 using OnlaynBazar.Domain.Entities.Commons;
@@ -12,6 +12,8 @@ using OnlaynBazar.Domain.Entities.UserManagements;
 using OnlaynBazar.Domain.Entities.Users;
 using OnlaynBazar.Domain.Entities.WareHouses;
 using OnlaynBazar.Domain.Entities.Wishlists;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace OnlaynBazar.DataAccess.Contexts;
 
@@ -35,4 +37,24 @@ public class AppDbContext : DbContext
     public DbSet<UserManagement>  UserManagements { get; set; }
     public DbSet<WareHouse> wareHouses { get; set; }
     public DbSet<Wishlist> Wishlists { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        ApplyConfigurations(modelBuilder);
+    }
+
+    private void ApplyConfigurations(ModelBuilder modelBuilder)
+    {
+        var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
+            .Where(type => !string.IsNullOrEmpty(type.Namespace))
+            .Where(type => type.GetInterfaces().Any(inter => inter == typeof(IEntityConfiguration)));
+
+        foreach (var type in typesToRegister)
+        {
+            var configuration = (IEntityConfiguration)Activator.CreateInstance(type);
+            configuration.Configure(modelBuilder);
+            configuration.SeedData(modelBuilder); // Call the SeedData method
+        }
+    }
 }
